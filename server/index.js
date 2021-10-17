@@ -26,7 +26,7 @@ const streamURL =
 'https://api.twitter.com/2/tweets/search/stream?tweet.fields=public_metrics&expansions=author_id'
 
 // rules that wanted to add
-const rules = [{value: 'kemal'}]
+const rules = [{value: 'id'}]
 
 // get stream rules
 async function getRules () {

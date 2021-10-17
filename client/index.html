@@ -46,22 +46,27 @@
             // console.log(tweet)
             // data that I want to display and out in an object
             const tweetData = {
+                id: tweet.data.id,
                 text: tweet.data.text,
-                username: `@${tweet.includes.users[0].username}`
+                username: `Journal`
             }
 
             // creating element for insert
             const tweetEl = document.createElement('div')
             tweetEl.className = 'card my-4'
-            tweetEl.innerHTLM = `
+            tweetEl.innerHTML = `
                 <div class="card-body"> 
                     
-                    <h6 class="car-subtitle mb-2 text-muted">${tweetData.username}</h6>
+                    <h5 class="card-title">${tweetData.username}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">${tweetData.text}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">${tweetData.id}</h6>
 
-                        <a class="btn btn-primary mt-3" href="https://twitter.com/${tweetData.username}/status/${tweetData.id}">
-                            <i class="fab fab-twitter"></i>Tweetlere Git
+
+                        <a class="btn btn-primary mt-3" href="https://twitter.com/journalcomtr">
+                            <i class="fab fab-twitter"></i>Twitter'a Git
                             </a>
                     </div>
+
             `
 
             tweetStream.appendChild(tweetEl)
