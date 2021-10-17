@@ -14,6 +14,12 @@ const app = express ()
 const server = http.createServer(app)
 const io = socketIo(server)
 
+
+// pointing and loading the html file that I created
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../', 'client', 'index.html'))
+})
+
 // endpoints for the URL's
 const rulesURL = 'https://api.twitter.com/2/tweets/search/stream/rules'
 const streamURL = 
@@ -76,7 +82,7 @@ async function deleteRules (rules) {
 }
 
 // streaming tweets
-function streamTweets() {
+function streamTweets(socket) {
     const stream = needle.get(streamURL, {
         headers: {
             Authorization: `Bearer ${TOKEN}`,
@@ -86,7 +92,8 @@ function streamTweets() {
     stream.on('data', (data) => {
         try {
             const json = JSON.parse(data)
-            console.log(json)
+            // console.log(json)
+            socket.emit('tweet', json)
         } catch (error) {
             
         }
@@ -95,14 +102,8 @@ function streamTweets() {
 
 
 // when the client connects this will run
-io.on('connection', () => {
+io.on('connection', async () => {
     console.log('Client succcesfully conencted...')
-})
-
-
-/*
-// function that run itself
-;(async () => {
     let currentRules
 
     try {
@@ -119,9 +120,9 @@ io.on('connection', () => {
         process.exit(1)
     }
 
-    streamTweets()
-}) ()
-*/
+    streamTweets(io)
+})
+
 
 // listen on server
 
