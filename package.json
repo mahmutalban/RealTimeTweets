@@ -1,11 +1,11 @@
 {
-  "name": "RealTimeTweets",
+  "name": "real_time_tweets",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node server/index",
-    "start": "nodemon server/index"
+    "dev": "nodemon server/index"
 
   },
   "repository": {
