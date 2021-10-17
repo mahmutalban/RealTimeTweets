@@ -1,0 +1,31 @@
+{
+  "name": "RealTimeTweets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index",
+    "start": "nodemon server/index"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahmutalban/RealTimeTweets.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mahmutalban/RealTimeTweets/issues"
+  },
+  "homepage": "https://github.com/mahmutalban/RealTimeTweets#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "needle": "^3.0.0",
+    "socket.io": "^4.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
